@@ -23,18 +23,21 @@
                 </ul>
             </nav>
         </header>
-        <div class="container-fluid" style="background-color: #f2e6ff; height: 92.5vh;">
+        <div class="container-fluid">
 			<div class="row" style="margin-top: 56px;">
-				<h1>This is the Albums page</h1>
+				<h1 style="margin-left: 1rem">This is the Albums page</h1>
 			</div>
 			<div class="row">
 				<% for(var i = 0; i < album.length; i++) {%>
-				<div class="card" style="width: 18rem; background-color: #d7b3ff; border: none; margin: 10px;">
+				<div class="card" style="width: 20rem; background-color: #d7b3ff; border: none; margin: 1rem;">
 					<img src="img/<%=album[i].photo_path%>" class="card-img-top" alt="No images available">
 					<div class="card-body">
 						<h5 class="card-title"><%=album[i].name%></h5>
 						<p class="card-text">Created: <%=album[i].created_date%></p>
-						<a href="#" class="btn btn-primary btn-sm" style="background-color: #5900b3; border-color: #5900b3;">See All</a>
+						<div class="row">
+							<a href="/album/<%=album[i].id%>" class="btn btn-primary btn-sm" style="background-color: #5900b3; border-color: #5900b3; margin-left: 1rem">All Photos</a>
+							<a href="#" class="btn btn-primary btn-sm" style="background-color: #5900b3; border-color: #5900b3; margin-left: 7rem;">Delete</a>
+						</div>
 					</div>
 				</div>
 				<% } %>
