@@ -1,5 +1,7 @@
 // JavaScript source code
 const express = require("express"),
+    fileUpload = require("express-fileupload"),
+    bodyParser = require("body-parser"),
     app = express(),
     http = require("http").Server(app).listen(3306),
     mysql = require("mysql");
@@ -15,7 +17,6 @@ con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
 });
-
 
 function getHomePage (req, res){
     con.query("SELECT *, DATE_FORMAT(photo.date_uploaded, '%d-%m-%Y') AS upload_date FROM photo INNER JOIN album ON album.id = photo.album_id ORDER BY photo.date_uploaded DESC", function (err, result) {
@@ -47,9 +48,13 @@ function getAlbum(req, res) {
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use("/css", express.static("./css"));
 app.use("/img", express.static("./img"));
-console.log("Server started at port 3306");
+app.use(fileUpload());
+
 app.get("/", getHomePage);
 app.get("/albums", getAlbumsPage);
 app.get("/album/:id", getAlbum);
+//console.log("Server started at port 3306");
