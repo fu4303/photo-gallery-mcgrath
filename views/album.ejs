@@ -16,7 +16,7 @@
         </button>
         <nav class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/albums">Albums</a>
                 </li>
                 <li class="nav-item">
@@ -25,9 +25,11 @@
             </ul>
         </nav>
     </header>
-    <div class="container-fluid">
-        <div class="row" style="margin-top: 56px;">
-            <h1 style="margin-left: 1rem"><%=photos[0].name%></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12" style="text-align: center; margin-top: 56px;">
+                <h1><%=photos[0].name%></h1>
+            </div>
         </div>
         <div class="row">
             <%for(var i=0; i<photos.length; i++) {%>

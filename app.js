@@ -46,6 +46,16 @@ function getAlbum(req, res) {
     });
 };
 
+function getAddPhoto(req, res) {
+    let albumId = req.params.id;
+    con.query("SELECT * FROM album", function (err, result) {
+        if (err) throw err;
+        res.render("addphoto.ejs", {
+            albums: result
+        });
+    });
+};
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -57,4 +67,5 @@ app.use(fileUpload());
 app.get("/", getHomePage);
 app.get("/albums", getAlbumsPage);
 app.get("/album/:id", getAlbum);
-//console.log("Server started at port 3306");
+app.get("/addphoto", getAddPhoto);
+console.log("Server started at port 3306");
