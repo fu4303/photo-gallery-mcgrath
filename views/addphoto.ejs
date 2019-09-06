@@ -89,6 +89,10 @@
 						<label for="albumNameInput">Name</label>
 						<input class="form-control" type="text" placeholder="Album Name" name="albumNameInput" required>
 						<div class="invalid-feedback">Please enter an album name</div>
+						<% if(message) {%>
+							<p class="feedback-msg"><%=message%></p>
+							<%=message = ''%>
+						<%}%>
 					</div>					
 					<button type="submit" class="btn btn-primary" style="margin-left: 1rem">Submit</button>
 				</form>
