@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#edit-title").click(function() {
+				$("#album-title").replaceWith("<form method='POST' action='/edittitle/<%=photos[0].album_id%>' class='col-6' id='form-edit-title'><div class'form-group col-4'><input class='form-control form-control-lg' type='text' placeholder='<%=photos[0].name%>' name='editNameInput' required><button type='submit' class='btn btn-primary'>Submit</button></div></form>")
+				$(this).remove();
+			})
+		});
+	</script>
 </head>
 <body>
     <header class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #5900b3;">
@@ -20,21 +29,24 @@
                     <a class="nav-link" href="/albums">Albums</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Add Photo</a>
+                    <a class="nav-link" href="/addphoto">Add Photo</a>
                 </li>
             </ul>
         </nav>
     </header>
     <div class="container">
-        <div class="row">
-            <div class="col-12" style="text-align: center; margin-top: 56px;">
+        <div class="row" style="margin-top: 56px;">
+            <div class="col-6" id='album-title'>
                 <h1><%=photos[0].name%></h1>
             </div>
+			<div class="col-6" id="album-btns" style="justify-content: flex-end; margin-top: 0.5rem;">
+				<button type="button" class="btn btn-secondary" id="edit-title">Edit</button>
+			</div>
         </div>
         <div class="row">
             <%for(var i=0; i<photos.length; i++) {%>
-                <div style="padding: 1rem;">
-                    <img src="../img/<%=photos[i].path%>" style="width: 28rem;">
+                <div class="photo-img "style="padding: 1rem;">
+                    <img src="../img/<%=photos[i].path%>" style="width: 20rem;">
                 </div>
              <%}%>   
         </div>

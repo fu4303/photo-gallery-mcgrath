@@ -59,5 +59,15 @@ module.exports = {
             }
         });
 
+    },
+
+    editAlbumName: (req, res) => {
+        let albumId = req.params.id;
+        let editName = req.body.editNameInput;
+        let editQuery = "UPDATE album SET name = '" + editName + "' WHERE id = " + albumId;
+        con.query(editQuery, function (err, result) {
+            if (err) throw err;
+            res.redirect("/album/" + albumId);
+        })
     }
 };

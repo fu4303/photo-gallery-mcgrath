@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\css",
+    "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\app.js",
+  "SelectedNode": "\\routes\\album.js",
   "PreviewInSolutionExplorer": false
 }

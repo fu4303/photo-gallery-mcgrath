@@ -21,7 +21,7 @@ con.connect(function (err) {
 global.con = con;
 
 const { getHomePage } = require("./routes/index");
-const { getAlbumsPage, getAlbumPhotos, getAddPhoto, postNewAlbum } = require("./routes/album");
+const { getAlbumsPage, getAlbumPhotos, getAddPhoto, postNewAlbum, editAlbumName } = require("./routes/album");
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -36,4 +36,5 @@ app.get("/albums", getAlbumsPage);
 app.get("/album/:id", getAlbumPhotos);
 app.get("/addphoto", getAddPhoto);
 app.post("/createalbum", postNewAlbum);
+app.post("/edittitle/:id", editAlbumName);
 console.log("Server started at port 3306");
