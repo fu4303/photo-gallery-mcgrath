@@ -3,14 +3,13 @@ App to create albums and add/delete photos or edit/delete albums using Node.js a
 
 ## Technologies
 * Node.js
-* Express
+* Express.js
 * MySQL
 * HTML5
 * Bootstrap CSS Framework
 
 ## To-Do List
-* Add 'Edit Album Name' function
-* Add 'Add Photo function'
+* Add possibility for multiple uploads
 * Add 'Delete Photo' function
 * Add 'Delete Album' function
  
