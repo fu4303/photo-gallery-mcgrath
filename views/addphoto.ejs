@@ -59,7 +59,7 @@
         <div class="row">
 			<div class="col-12" style="margin-top: 2rem;">
 				<h5 style="margin-left: 1rem;">Add to existing album</h5>
-				<form method="POST" action="/upload" class="needs-validation" id="form-upload-photo" novalidate>
+				<form method="POST" action="/upload" class="needs-validation" id="form-upload-photo" enctype="multipart/form-data" novalidate>
 					<div class="form-group col-md-4">
 						<label for="albumSelect">Album</label>
 						<select id="inputAlbum" class="form-control" name="albumSelect" required>
@@ -74,7 +74,7 @@
 						<button type="button" class="btn btn-primary" id="addPhotoBtn">Add Field</button>
 						<div class="form-group" style="margin-top: 1rem;">
 							<label for="photoFile">Choose Image</label>
-							<input type="file" class="form-control-file" name="photoSrc[]" id="photoFile">
+							<input type="file" class="form-control-file" name="photoSrc" id="photoFile">
 						</div>
 					</div>
 					<button type="submit" class="btn btn-primary" style="margin-left: 1rem">Submit</button>
