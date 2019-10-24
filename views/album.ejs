@@ -28,7 +28,7 @@
     </header>
     <div class="container">
         <div class="row justify-content-between" style="margin-top: 56px;">
-            <div class="col-6" id='album-title'>
+            <div class="col-sm-11 col-md-6" id='album-title'>
                 <h1><%=photos[0].name%></h1>
             </div>
 			<div class="col-1" id="album-btns" margin-top: 0.5rem;">
@@ -54,7 +54,7 @@
 			})
 
 			$("#album-btns").on("click", "#cancel-edit-btn", function() {
-				$("#form-edit-title").replaceWith("<div class='col-6' id='album-title'><h1><%=photos[0].name%></h1></div>");
+				$("#form-edit-title").replaceWith("<div class='col-11-sm col-md-6' id='album-title'><h1><%=photos[0].name%></h1></div>");
 				$(this).replaceWith("<button type='button' class='btn btn-secondary' id='edit-title-btn'>Edit</button>");
 			})
 		});
